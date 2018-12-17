@@ -7,9 +7,8 @@ Neural networks are becoming increasing more popular and are responsible for som
 
 ## Objectives
 You will be able to:
-* what neural networks are, and what they can achieve
-* why they are so popular
-* how logistic regression can be seen as a very introductory neural network, and how you can implement it
+* explain what neural networks are, and what they can achieve
+* explain the basic architecture of a neural network
 
 ## What is a neural network?
 
