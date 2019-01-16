@@ -7,8 +7,8 @@ Neural networks are becoming increasing more popular and are responsible for som
 
 ## Objectives
 You will be able to:
-* explain what neural networks are, and what they can achieve
-* explain the basic architecture of a neural network
+* Explain what neural networks are, and what they can achieve
+* Explain the basic architecture of a neural network
 
 ## What is a neural network?
 
@@ -30,7 +30,7 @@ As you can see, to implement a neural network, we need to give feed it the input
 
 ![title](figures/First_network.jpg)
 
-## The power of deep learning. 
+## The power of deep learning
 
 In our previous example, we have 3 input units, hidden layer with 4 units and 1 output units. Notice that networks come in all shapes and sizes. This is only one example of what deep learning is capable of! The network described above can be extended almost endlessly:
 
@@ -101,7 +101,7 @@ $y $= $\begin{bmatrix} 1 & 0 & \cdots & 1 \end{bmatrix}$
 where 1 means that the image contains a Santa, 0 means there is no Santa in the image.
 
 
-### Logistic regression as a neural network.
+### Logistic regression as a neural network
 
 So how will we be able to predict wheather y is 0 or 1 for a certain image? You might remember from logistic regression models that the eventual predictor, $\hat y$, is generally never exactly 0 or 1, but some value in between. 
 
@@ -119,7 +119,7 @@ Bringing all this together, the neural network can be represented as follows:
 
 ![title](figures/log_reg.png)
 
-### Defining the loss and cost function.
+### Defining the loss and cost function
 
 Problem statement: given that we have $\{(x^{(1)},y^{(1)}), \ldots, (x^{(l)},y^{(l)})\}$, we want to obtain $\hat y \approx y$. Neural networks use **loss** and **cost** functions here.
 
@@ -266,22 +266,9 @@ repeat until convergence!
 
 ## Additional Resources
 
-www.coursera.org
+- https://towardsdatascience.com/multi-layer-neural-networks-with-sigmoid-function-deep-learning-for-rookies-2-bf464f09eb7f
 
-https://xrds.acm.org/blog/wp-content/uploads/2016/06/Figure1.png
-
-https://towardsdatascience.com/multi-layer-neural-networks-with-sigmoid-function-deep-learning-for-rookies-2-bf464f09eb7f
-
-https://playground.tensorflow.org/
-
-https://www.quora.com/What-tools-are-good-for-drawing-neural-network-architecture-diagrams
-
-https://tex.stackexchange.com/questions/140782/drawing-a-neural-network-architecture
-
-https://tex.stackexchange.com/questions/132444/diagram-of-an-artificial-neural-network
-
-draw latex: https://www.overleaf.com/15216948hcxfqmhtwtyg#/57543386/
-
+- https://playground.tensorflow.org/
 
 ## Summary 
 
