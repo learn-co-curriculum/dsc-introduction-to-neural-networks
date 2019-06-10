@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Neural networks are becoming increasing more popular and are responsible for some of the most cutting edge advancements in data science including image and speech recongintion. They have also been transformative in reducing the need for intensive and often time intesive feature engingeering needed for traditional supervised learning tasks. In this lecture, we'll further investigate the architecture of neural networks.
+Neural networks are becoming increasingly more popular and are responsible for some of the most cutting edge advancements in data science including image and speech recognition. They have also been transformative in reducing the need for intensive and often time intensive feature engineering needed for traditional supervised learning tasks. In this lecture, we'll further investigate the architecture of neural networks.
 
 ## Objectives
 You will be able to:
@@ -26,7 +26,7 @@ In reality, all features will be connected with all nodes in the hidden layer, a
 
 When we generalize all this, a neural network looks like the configuration below. 
 
-As you can see, to implement a neural network, we need to give feed it the inputs $x_i$ (location, pricing and variety in the example) and the outcome $y$ (pricing in the example), and all the features in the middle will be figured out automatically in the network. That's why this layer is called the **hidden layer**, with the nodes representing **hidden units**. 
+As you can see, to implement a neural network, we need to feed it the inputs $x_i$ (location, pricing and variety in the example) and the outcome $y$ (pricing in the example), and all the features in the middle will be figured out automatically in the network. That's why this layer is called the **hidden layer**, with the nodes representing **hidden units**. 
 
 ![title](figures/First_network.jpg)
 
@@ -103,7 +103,7 @@ where 1 means that the image contains a Santa, 0 means there is no Santa in the 
 
 ### Logistic regression as a neural network
 
-So how will we be able to predict wheather y is 0 or 1 for a certain image? You might remember from logistic regression models that the eventual predictor, $\hat y$, is generally never exactly 0 or 1, but some value in between. 
+So how will we be able to predict weather `y` is 0 or 1 for a certain image? You might remember from logistic regression models that the eventual predictor, $\hat y$, is generally never exactly 0 or 1, but some value in between. 
 
 Formally, you'll denote that $ \hat y = P(y=1 \mid x) $. Remember that $x \in  \mathbb{R}^n $. As in classical (logistic) regression we'll need some parameters. 
 
@@ -170,7 +170,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_32_0.png)
+![png](output_32_0.png)
 
 
 Congratulations! You have gotten to the point where you have the expression for the cost function and the loss function. The step we have just taken is called **forward propagation**.
@@ -224,8 +224,7 @@ $b := b - \alpha * d b$
 
 ### Extending to multiple samples
 
-Remember that this example just incorporates 1 training sample. Let'
-s look at how this is done when you have multiple ($l$) training samples!
+Remember that this example just incorporates 1 training sample. Let's look at how this is done when you have multiple ($l$) training samples!
 We basically want to compute the derivative of the overall cost function,
 
 $\displaystyle \frac{dJ(w,b)}{dw_i} = \displaystyle\frac{1}{l}\displaystyle\sum^l_{i=1} \frac{d\mathcal{L}(\hat y^{(i)}, y^{(i)})}{dw_i}$
