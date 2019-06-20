@@ -108,8 +108,7 @@ So how will we be able to predict weather `y` is 0 or 1 for a certain image? You
 Formally, you'll denote that $ \hat y = P(y=1 \mid x) $. Remember that $x \in  \mathbb{R}^n $. As in classical (logistic) regression we'll need some parameters. 
 
 We'll need some expression here in order to predict 
-The parameters here are $w \in  \mathbb{R}^n$ and $b \in \mathbb{R}$. Some expression to get to $\hat y$ could be $\hat y = w^T x + b$. The problem here is, however, that this type of expression does not ensure that the eventual outcome $ \hat y$ will be between zero and one, and it could be much bigger than one or even negative! 
-A popular solution is to.
+The parameters here are $w \in  \mathbb{R}^n$ and $b \in \mathbb{R}$. Some expression to get to $\hat y$ could be $\hat y = w^T x + b$. The problem here is, however, that this type of expression does not ensure that the eventual outcome $ \hat y$ will be between zero and one, and it could be much bigger than one or even negative!
 
 This is why a transformation of $w^T x + b$ is needed. For this particular example, we denote $\hat y = \sigma(w^T x + b)$, where $z = w^T x + b$, then $ \hat y = \sigma(z)$. This so-called *sigmoid function* is a popular *activation function* (more about activation functions later) in neural networks. With the expression for a sigmoid given by $\sigma(z) = \displaystyle\frac{1}{1 + \exp(z)}$, it is clear that $\sigma(z)$ will always be somewhere between 0 and 1, as you can see in the plot below.
 
@@ -170,7 +169,7 @@ plt.show()
 ```
 
 
-![png](output_32_0.png)
+![png](index_files/index_32_0.png)
 
 
 Congratulations! You have gotten to the point where you have the expression for the cost function and the loss function. The step we have just taken is called **forward propagation**.
