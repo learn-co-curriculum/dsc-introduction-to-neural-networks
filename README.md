@@ -22,13 +22,13 @@ Last, let's look at the *variety in offering*. When an ice cream shop offers a l
 
 In reality, all features will be connected with all nodes in the hidden layer, and weights will be assigned to the edges (more about this later), as you can see in the network below. That's why networks like this are also referred to as **densely connected neural networks**.
 
-![title](figures/Ice_cream_network_smaller.jpg)
+![title](images/Ice_cream_network_smaller.jpg)
 
 When we generalize all this, a neural network looks like the configuration below. 
 
 As you can see, to implement a neural network, we need to feed it the inputs $x_i$ (location, pricing and variety in the example) and the outcome $y$ (pricing in the example), and all the features in the middle will be figured out automatically in the network. That's why this layer is called the **hidden layer**, with the nodes representing **hidden units**. 
 
-![title](figures/First_network.jpg)
+![title](images/First_network.jpg)
 
 ## The power of deep learning
 
@@ -38,7 +38,7 @@ In our previous example, we have 3 input units, hidden layer with 4 units and 1 
 - We can add more nodes in the hidden layer. Also, we can simply add more hidden layers. This is what turns a neural network in a "deep" neural network (hence, deep learning)
 - We can have several nodes in the output layer.
 
-![title](figures/Deeper_network.jpg)
+![title](images/Deeper_network.jpg)
 
 And there is one more thing that makes deep learning extremely powerful: unlike many other statistical and machine learning techniques, deep learning can deal extremely well with **unstructured data**.
 
@@ -68,14 +68,14 @@ Types or Neural networks:
 
 ### Problem statement and matrix representation
 
-![title](data/train/santa/00000022.jpg)
+![title](images/santa.jpg)
 
 You'll see that there is quite a bit of theory and mathematical notation needed when using neural networks. We'll introduce all this for the first time by using an example.
 Imagine we have a data set with images. Some of them have Santa in it, others don't. We'll use a neural network to train the model so it can detect whether Santa is in a picture or not.
 
 As mentioned before, this is a kind of problem where the input data is composed of images. Now how does Python read images? To store an image, your computes stores 3 matrices which correspond with 3 color channels: red, green and blue (also referred to as RGB). The numbers in each of the three matrices correspond with the pixel intensity values in each of the three colors. The picture below denotes a hypothetical representation of a 4 x 4 pixel image (note that 4 x 4 is tiny, generally you'll have much bigger dimensions). Generally, pixel intensity values are on the scale [0,255].
 
-![title](figures/RGB_sm.png)
+![title](images/RGB_sm.png)
 
 Having 3 matrices associated with one image, we'll need to modify this shape to get to one input feature vector. You'll want to "unrow" your input feature values into one so-called "feature vector". You should start with unrowing the red pixel matrix, then the green one, then the blue one. Unrowing the RGB matrices  in the image above would result in:
 
@@ -112,11 +112,11 @@ The parameters here are $w \in  \mathbb{R}^n$ and $b \in \mathbb{R}$. Some expre
 
 This is why a transformation of $w^T x + b$ is needed. For this particular example, we denote $\hat y = \sigma(w^T x + b)$, where $z = w^T x + b$, then $ \hat y = \sigma(z)$. This so-called *sigmoid function* is a popular *activation function* (more about activation functions later) in neural networks. With the expression for a sigmoid given by $\sigma(z) = \displaystyle\frac{1}{1 + \exp(-z)}$, it is clear that $\sigma(z)$ will always be somewhere between 0 and 1, as you can see in the plot below.
 
-![title](figures/sigmoid_smaller.png)
+![title](images/sigmoid_smaller.png)
 
 Bringing all this together, the neural network can be represented as follows:
 
-![title](figures/log_reg.png)
+![title](images/log_reg.png)
 
 ### Defining the loss and cost function
 
