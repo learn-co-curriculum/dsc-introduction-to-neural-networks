@@ -191,7 +191,7 @@ What I have just explained here is called **backpropagation**. You need to take 
 
 When using the chain rule, computation graphs are popular. Imagine there are just 2 features $x_1$ and $x_2$. The graph going from our input variables to our loss function is given below.
 
-![title](figures/log_reg_deriv.png)
+![title](images/log_reg_deriv.png)
 
 You'll first want to compute the derivative to the loss with respect to $\hat y$ first.
 
