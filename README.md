@@ -22,13 +22,13 @@ Last, let's look at the *variety in offering*. When an ice cream shop offers a l
 
 In reality, all features will be connected with all nodes in the hidden layer, and weights will be assigned to the edges (more about this later), as you can see in the network below. That's why networks like this are also referred to as **densely connected neural networks**.
 
-![title](images/Ice_cream_network_smaller.jpg)
+<img src="./images/new_first_network.png" width=600>
 
 When we generalize all this, a neural network looks like the configuration below. 
 
 As you can see, to implement a neural network, we need to feed it the inputs $x_i$ (location, pricing and variety in the example) and the outcome $y$ (pricing in the example), and all the features in the middle will be figured out automatically in the network. That's why this layer is called the **hidden layer**, with the nodes representing **hidden units**. 
 
-![title](images/First_network.jpg)
+<img src="./images/new_first_network_num.png" width=600>
 
 ## The power of deep learning
 
@@ -38,7 +38,7 @@ In our previous example, we have 3 input units, hidden layer with 4 units and 1 
 - We can add more nodes in the hidden layer. Also, we can simply add more hidden layers. This is what turns a neural network in a "deep" neural network (hence, deep learning)
 - We can have several nodes in the output layer.
 
-![title](images/Deeper_network.jpg)
+<img src="./images/new_deeper_network.png" width=800>
 
 And there is one more thing that makes deep learning extremely powerful: unlike many other statistical and machine learning techniques, deep learning can deal extremely well with **unstructured data**.
 
@@ -75,7 +75,7 @@ Imagine we have a data set with images. Some of them have Santa in it, others do
 
 As mentioned before, this is a kind of problem where the input data is composed of images. Now how does Python read images? To store an image, your computes stores 3 matrices which correspond with 3 color channels: red, green and blue (also referred to as RGB). The numbers in each of the three matrices correspond with the pixel intensity values in each of the three colors. The picture below denotes a hypothetical representation of a 4 x 4 pixel image (note that 4 x 4 is tiny, generally you'll have much bigger dimensions). Generally, pixel intensity values are on the scale [0,255].
 
-![title](images/RGB_sm.png)
+<img src="./images/new_rgb.png" width=300>
 
 Having 3 matrices associated with one image, we'll need to modify this shape to get to one input feature vector. You'll want to "unrow" your input feature values into one so-called "feature vector". You should start with unrowing the red pixel matrix, then the green one, then the blue one. Unrowing the RGB matrices  in the image above would result in:
 
@@ -112,11 +112,11 @@ The parameters here are $w \in  \mathbb{R}^n$ and $b \in \mathbb{R}$. Some expre
 
 This is why a transformation of $w^T x + b$ is needed. For this particular example, we denote $\hat y = \sigma(w^T x + b)$, where $z = w^T x + b$, then $ \hat y = \sigma(z)$. This so-called *sigmoid function* is a popular *activation function* (more about activation functions later) in neural networks. With the expression for a sigmoid given by $\sigma(z) = \displaystyle\frac{1}{1 + \exp(-z)}$, it is clear that $\sigma(z)$ will always be somewhere between 0 and 1, as you can see in the plot below.
 
-![title](images/sigmoid_smaller.png)
+<img src="./images/new_sigmoid_smaller.png" width=550>
 
 Bringing all this together, the neural network can be represented as follows:
 
-![title](images/log_reg.png)
+<img src="./images/new_slogref.png" width=600>
 
 ### Defining the loss and cost function
 
@@ -191,7 +191,7 @@ What I have just explained here is called **backpropagation**. You need to take 
 
 When using the chain rule, computation graphs are popular. Imagine there are just 2 features $x_1$ and $x_2$. The graph going from our input variables to our loss function is given below.
 
-![title](images/log_reg_deriv.png)
+<img src="./images/new_logreg.png" width=600>
 
 You'll first want to compute the derivative to the loss with respect to $\hat y$ first.
 
