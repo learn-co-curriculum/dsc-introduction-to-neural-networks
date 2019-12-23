@@ -3,16 +3,19 @@
 
 ## Introduction
 
-Neural networks are becoming increasingly more popular and are responsible for some of the most cutting edge advancements in data science including image and speech recognition. They have also been transformative in reducing the need for intensive and often time intensive feature engineering needed for traditional supervised learning tasks. In this lecture, we'll further investigate the architecture of neural networks.
+Neural networks are becoming increasingly more popular and are responsible for some of the most cutting edge advancements in data science including image and speech recognition. They have also been transformative in reducing the need for intensive and often time intensive feature engineering needed for traditional supervised learning tasks. In this lesson, we'll investigate the architecture of neural networks.
 
 ## Objectives
+
 You will be able to:
-* Explain what neural networks are, and what they can achieve
-* Explain the basic architecture of a neural network
+- Explain what neural networks are and what they can achieve 
+- List the components of a neural network 
+- Explain forward propagation in a neural network 
+- Explain backward propagation and discuss how it is related to forward propagation 
 
 ## What is a neural network?
 
-Let's start with an easy example to get an idea of what a neural network is. Imagine a city has 10 ice cream vendors. We would like to predict what the sales amount is for an ice cream vendor given certain input features. Imagine you have several features to predict the sales for each ice cream vendor: the location, the way the ice cream is priced, and the variety in the ice cream offerings.
+Let's start with an easy example to get an idea of what a neural network is. Imagine a city has 10 ice cream vendors. We would like to predict what the sales amount is for an ice cream vendor given certain input features. Let's say you have several features to predict the sales for each ice cream vendor: the location, the way the ice cream is priced, and the variety in the ice cream offerings.
 
 Let's look at the input feature *location*. You know that one of the things that really affect the sales is how many people will walk by the ice cream shop, as these are all potential customers. And realistically, the volume of people passing is largely driven by the *location*. 
 
@@ -24,26 +27,26 @@ In reality, all features will be connected with all nodes in the hidden layer, a
 
 <img src="./images/new_first_network.png" width=600>
 
-When we generalize all this, a neural network looks like the configuration below. 
+When we generalize this, a neural network looks like the configuration below. 
 
-As you can see, to implement a neural network, we need to feed it the inputs $x_i$ (location, pricing and variety in the example) and the outcome $y$ (pricing in the example), and all the features in the middle will be figured out automatically in the network. That's why this layer is called the **hidden layer**, with the nodes representing **hidden units**. 
+As you can see, to implement a neural network, we need to feed it the inputs $x_i$ (location, pricing, and variety in this example) and the outcome $y$ (pricing in this example), and all the features in the middle will be figured out automatically in the network. That's why this layer is called the **hidden layer**, with the nodes representing **hidden units**. 
 
 <img src="./images/new_first_network_num.png" width=600>
 
 ## The power of deep learning
 
-In our previous example, we have 3 input units, hidden layer with 4 units and 1 output units. Notice that networks come in all shapes and sizes. This is only one example of what deep learning is capable of! The network described above can be extended almost endlessly:
+In our previous example, we have three input units, hidden layer with 4 units and 1 output unit. Notice that networks come in all shapes and sizes. This is only one example of what deep learning is capable of! The network described above can be extended almost endlessly:
 
-- We can add more features (nodes) in the input layer.
+- We can add more features (nodes) in the input layer 
 - We can add more nodes in the hidden layer. Also, we can simply add more hidden layers. This is what turns a neural network in a "deep" neural network (hence, deep learning)
-- We can have several nodes in the output layer.
+- We can also have several nodes in the output layer 
 
 <img src="./images/new_deeper_network.png" width=800>
 
 And there is one more thing that makes deep learning extremely powerful: unlike many other statistical and machine learning techniques, deep learning can deal extremely well with **unstructured data**.
 
 
-In the ice cream vendor example, the input features can be seen as **structured data**. The input features very much take a form of a "classical" data set: observations are rows, features are columns. Examples or **unstructured data** however, are: images, audio files, text data, etc. Historically, and unlike humans, machines had a very hard time interpreting unstructured data. Deep learning was really able to drastically improve machine performance when using unstructured data!
+In the ice cream vendor example, the input features can be seen as **structured data**. The input features very much take a form of a "classical" dataset: observations are rows, features are columns. Examples or **unstructured data**, however, are: images, audio files, text data, etc. Historically, and unlike humans, machines had a very hard time interpreting unstructured data. Deep learning was really able to drastically improve machine performance when using unstructured data!
 
 To illustrate the power of deep learning, we describe some applications of deep learning below:
 
@@ -58,7 +61,8 @@ To illustrate the power of deep learning, we describe some applications of deep 
 
 
 
-Types or Neural networks:
+Types or neural networks: 
+
 - Standard neural networks
 - Convolutional neural networks (input = images, video)
 - Recurrent neural networks (input = audio files, text, time series data)
@@ -71,21 +75,22 @@ Types or Neural networks:
 ![title](images/santa.jpg)
 
 You'll see that there is quite a bit of theory and mathematical notation needed when using neural networks. We'll introduce all this for the first time by using an example.
-Imagine we have a data set with images. Some of them have Santa in it, others don't. We'll use a neural network to train the model so it can detect whether Santa is in a picture or not.
+Imagine we have a dataset with images. Some of them have Santa in it, others don't. We'll use a neural network to train the model so it can detect whether Santa is in a picture or not.
 
-As mentioned before, this is a kind of problem where the input data is composed of images. Now how does Python read images? To store an image, your computes stores 3 matrices which correspond with 3 color channels: red, green and blue (also referred to as RGB). The numbers in each of the three matrices correspond with the pixel intensity values in each of the three colors. The picture below denotes a hypothetical representation of a 4 x 4 pixel image (note that 4 x 4 is tiny, generally you'll have much bigger dimensions). Generally, pixel intensity values are on the scale [0,255].
+As mentioned before, this is a kind of problem where the input data is composed of images. Now how does Python read images? To store an image, your computes stores three matrices which correspond with three color channels: red, green and blue (also referred to as RGB). The numbers in each of the three matrices correspond with the pixel intensity values in each of the three colors. The picture below denotes a hypothetical representation of a 4 x 4 pixel image (note that 4 x 4 is tiny, generally you'll have much bigger dimensions). Pixel intensity values are on the scale [0, 255].
 
 <img src="./images/new_rgb.png" width=300>
 
-Having 3 matrices associated with one image, we'll need to modify this shape to get to one input feature vector. You'll want to "unrow" your input feature values into one so-called "feature vector". You should start with unrowing the red pixel matrix, then the green one, then the blue one. Unrowing the RGB matrices  in the image above would result in:
+Having three matrices associated with one image, we'll need to modify this shape to get to one input feature vector. You'll want to "unrow" your input feature values into one so-called "feature vector". You should start with unrowing the red pixel matrix, then the green one, then the blue one. Unrowing the RGB matrices in the image above would result in:
 
  $x = \begin{bmatrix} 35  \\ 19 \\  \vdots \\ 9 \\7 \\\vdots \\ 4 \\ 6 \\ \vdots \end{bmatrix}$
 
-The resulting feature vector is a matrix with 1 column and 4 x 4 x 3 = 48 rows. Let's introduce some more notation to formalize this all.
+The resulting feature vector is a matrix with one column and 4 x 4 x 3 = 48 rows. Let's introduce some more notation to formalize this all.
 
-$(x,y)$ = a training sample, where $x \in  \mathbb{R}^n , y \in \{0,1\}$. Note that $n$ is the number of inputs in the feature vector (48 in the example).
+$(x, y)$ = a training sample, where $x \in  \mathbb{R}^n , y \in \{0,1\}$. Note that $n$ is the number of inputs in the feature vector (48 in this example).
 
-Let's say we have $l$ training samples. Your training set then looks like this: $\{(x^{(1)},y^{(1)}), \ldots, (x^{(l)},y^{(l)})\}$
+Let's say you have one training sample. Your training set then looks like this: $\{(x^{(1)},y^{(1)}), \ldots, (x^{(l)},y^{(l)})\}$ 
+
 Similarly, let's say the test set has $m$ test samples.
 
 Note that the resulting matrix $x$ has dimensions ($n$ x $l%$), and looks like this:
@@ -105,10 +110,11 @@ where 1 means that the image contains a Santa, 0 means there is no Santa in the 
 
 So how will we be able to predict weather `y` is 0 or 1 for a certain image? You might remember from logistic regression models that the eventual predictor, $\hat y$, is generally never exactly 0 or 1, but some value in between. 
 
-Formally, you'll denote that $ \hat y = P(y=1 \mid x) $. Remember that $x \in  \mathbb{R}^n $. As in classical (logistic) regression we'll need some parameters. 
+Formally, you'll denote that as $ \hat y = P(y=1 \mid x) $. 
 
-We'll need some expression here in order to make a prediction.
-The parameters here are $w \in  \mathbb{R}^n$ and $b \in \mathbb{R}$. Some expression to get to $\hat y$ could be $\hat y = w^T x + b$. The problem here is, however, that this type of expression does not ensure that the eventual outcome $ \hat y$ will be between zero and one, and it could be much bigger than one or even negative!
+Remember that $x \in  \mathbb{R}^n $. As in classical (logistic) regression we'll need some parameters. 
+
+We'll need some expression here in order to make a prediction. The parameters here are $w \in  \mathbb{R}^n$ and $b \in \mathbb{R}$. Some expression to get to $\hat y$ could be $\hat y = w^T x + b$. The problem here is, however, that this type of expression does not ensure that the eventual outcome $ \hat y$ will be between zero and one, and it could be much bigger than one or even negative!
 
 This is why a transformation of $w^T x + b$ is needed. For this particular example, we denote $\hat y = \sigma(w^T x + b)$, where $z = w^T x + b$, then $ \hat y = \sigma(z)$. This so-called *sigmoid function* is a popular *activation function* (more about activation functions later) in neural networks. With the expression for a sigmoid given by $\sigma(z) = \displaystyle\frac{1}{1 + \exp(-z)}$, it is clear that $\sigma(z)$ will always be somewhere between 0 and 1, as you can see in the plot below.
 
@@ -118,17 +124,15 @@ Bringing all this together, the neural network can be represented as follows:
 
 <img src="./images/new_slogref.png" width=600>
 
-### Defining the loss and cost function
+### Define the loss and cost function
 
 Problem statement: given that we have $\{(x^{(1)},y^{(1)}), \ldots, (x^{(l)},y^{(l)})\}$, we want to obtain $\hat y \approx y$. Neural networks use **loss** and **cost** functions here.
 
 The **loss function** is used to measure the inconsistency between the predicted value $(\hat y)$ and the actual label $y$.
 
 In logistic regression the loss function is defined as
-$\mathcal{L}(\hat y, y) = - ( y \log (\hat y) + (1-y) \log(1-\hat y))$. The advantage of this loss function expression is that the optimization space here is convex, which makes optimizing using gradient descent easier. The loss function, however, is defined over 1 particular training sample. The cost function takes the average loss over all the samples: $J(w,b) = \displaystyle\frac{1}{l}\displaystyle\sum^l_{i=1}\mathcal{L}(\hat y^{(i)}, y^{(i)})$
-When you train your logistic regression model, the purpose is to find parameters $w$ and $b$ such that your cost function is minimized!
-
-
+$\mathcal{L}(\hat y, y) = - ( y \log (\hat y) + (1-y) \log(1-\hat y))$. The advantage of this loss function expression is that the optimization space here is convex, which makes optimizing using gradient descent easier. The loss function, however, is defined over one particular training sample. The cost function takes the average loss over all the samples: $J(w,b) = \displaystyle\frac{1}{l}\displaystyle\sum^l_{i=1}\mathcal{L}(\hat y^{(i)}, y^{(i)})$
+When you train your logistic regression model, the purpose is to find parameters $w$ and $b$ such that your cost function is minimized. 
 
 
 ```python
@@ -142,17 +146,17 @@ import numpy as np
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 
-# Make data.
+# Generate data
 X = np.arange(-5, 5, 0.1)
 Y = np.arange(-5, 5, 0.1)
 X, Y = np.meshgrid(X, Y)
 R = X**2+ Y**2 + 6
 
-# Plot the surface.
+# Plot the surface
 surf = ax.plot_surface(X, Y, R, cmap=cm.coolwarm,
                        linewidth=0, antialiased=False)
 
-# Customize the z axis.
+# Customize the z axis
 ax.set_zlim(0, 50)
 ax.zaxis.set_major_locator(LinearLocator(10))
 ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
@@ -183,23 +187,23 @@ $b := b- \alpha\displaystyle \frac{dJ(b)}{db}$
 
 Remember that $ \displaystyle \frac{dJ(w)}{dw}$ and $\displaystyle \frac{dJ(b)}{db}$ represent the *slope* of the function $J$ with respect to $w$ and $b$ respectively! We've never seen $\alpha$ before, but for now you should just remember that this is denoted the *learning rate*. 
 
-What I have just explained here is called **backpropagation**. You need to take the derivatives to calculate the difference between the desired and calculated outcome, and repeat these steps until you get to the lowest possible cost value!
+What we have just explained here is called **backpropagation**. You need to take the derivatives to calculate the difference between the desired and calculated outcome, and repeat these steps until you get to the lowest possible cost value!
 
-### backpropagation for the logistic regression example
+### Backpropagation for the logistic regression example
 
 ### The chain rule using one sample
 
-When using the chain rule, computation graphs are popular. Imagine there are just 2 features $x_1$ and $x_2$. The graph going from our input variables to our loss function is given below.
+When using the chain rule, computation graphs are popular. Imagine there are just two features $x_1$ and $x_2$. The graph going from our input variables to our loss function is given below: 
 
 <img src="./images/new_logreg.png" width=600>
 
-You'll first want to compute the derivative to the loss with respect to $\hat y$ first.
+You'll first want to compute the derivative to the loss with respect to $\hat y$.
 
 This will be explained in more detail in class, but what you need to know is that you backpropagate, first:
 
 1) You'll want to go from $\mathcal{L}(\hat y , y)$ to $\hat y = \sigma (z)$. You can do this by taking the derivative of $\mathcal{L}(\hat y , y)$ with respect to $\hat y$, and it can be shown that this is given by $\displaystyle \frac{d\mathcal{L}(\hat y , y)}{d \hat y} = \displaystyle \frac{-y}{\hat y}+\displaystyle \frac{1-y}{1-\hat y}$
 
-2) As a next step you'll want to take the derivative with respect to z. It can be shown that $ dz = \displaystyle\frac{d\mathcal{L}(\hat y , y)}{d z} = \hat y - y$. This derivative can also be written as $\displaystyle\frac{d\mathcal{L}}{d\hat y} \displaystyle\frac{d\hat y}{dz} $.
+2) As a next step you'll want to take the derivative with respect to $z$. It can be shown that $ dz = \displaystyle\frac{d\mathcal{L}(\hat y , y)}{d z} = \hat y - y$. This derivative can also be written as $\displaystyle\frac{d\mathcal{L}}{d\hat y} \displaystyle\frac{d\hat y}{dz} $.
 
 3) Last, and this is where you want to get to, you need to derive $\mathcal{L}$ with respect to $w_1$, $w_2$ and $b$. It can be shown that: 
 $dw_1 = \displaystyle\frac{d\mathcal{L}(\hat y , y)}{d w_1} = \displaystyle\frac{d\mathcal{L}(\hat y , y)}{d \hat y}\displaystyle\frac{d\hat y}{dz}\displaystyle\frac{dz}{d w_1} = x_1 dz $
@@ -223,8 +227,7 @@ $b := b - \alpha * d b$
 
 ### Extending to multiple samples
 
-Remember that this example just incorporates 1 training sample. Let's look at how this is done when you have multiple ($l$) training samples!
-We basically want to compute the derivative of the overall cost function,
+Remember that this example just incorporates one training sample. Let's look at how this is done when you have multiple training samples! We basically want to compute the derivative of the overall cost function: 
 
 $\displaystyle \frac{dJ(w,b)}{dw_i} = \displaystyle\frac{1}{l}\displaystyle\sum^l_{i=1} \frac{d\mathcal{L}(\hat y^{(i)}, y^{(i)})}{dw_i}$
 
@@ -270,4 +273,4 @@ repeat until convergence!
 
 ## Summary 
 
-In this lecture, you learned about the basics of neural networks, and the basics of forward propagation and backpropagation. We explained these new concepts using a neural networks logistic regression example. In the following lab, you'll learn how to do all this in Python.
+In this lesson, you learned about the basics of neural networks, forward propagation, and backpropagation. We explained these new concepts using a logistic regression example. In the following lab, you'll learn how to do all this in Python.
