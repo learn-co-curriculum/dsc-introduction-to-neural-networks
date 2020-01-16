@@ -1,5 +1,5 @@
 
-# Introduction to Neural Networks
+# Introduction to Neural Networks 
 
 ## Introduction
 
@@ -13,7 +13,7 @@ You will be able to:
 - Explain forward propagation in a neural network 
 - Explain backward propagation and discuss how it is related to forward propagation 
 
-## What is a neural network?
+## What is a neural network? 
 
 Let's start with an easy example to get an idea of what a neural network is. Imagine a city has 10 ice cream vendors. We would like to predict what the sales amount is for an ice cream vendor given certain input features. Let's say you have several features to predict the sales for each ice cream vendor: the location, the way the ice cream is priced, and the variety in the ice cream offerings.
 
@@ -21,34 +21,36 @@ Let's look at the input feature *location*. You know that one of the things that
 
 Next, let's look at the input feature *pricing*. How the ice cream is priced really tells us something about the affordability, which will affect sales as well. 
 
-Last, let's look at the *variety in offering*. When an ice cream shop offers a lot of different ice cream flavors, this might be perceived as a higher quality shop just because customers have more flavors to choose from (and might really like that!). On the other hand, *pricing* might also affect perceived quality: customers might feel that the quality is higher when the prices are too. This shows that several inputs might affect one hidden feature, as these features in the so-called "hidden layer" are called. 
+Last, let's look at the *variety in offering*. When an ice cream shop offers a lot of different ice cream flavors, this might be perceived as a higher quality shop just because customers have more flavors to choose from (and might really like that!). On the other hand, *pricing* might also affect perceived quality: customers might feel that the quality is higher if the prices are higher. This shows that several inputs might affect one hidden feature, as these features in the so-called "hidden layer" are called. 
 
-In reality, all features will be connected with all nodes in the hidden layer, and weights will be assigned to the edges (more about this later), as you can see in the network below. That's why networks like this are also referred to as **densely connected neural networks**.
+In reality, all features will be connected with all nodes in the hidden layer, and weights will be assigned to the edges (more about this later), as you can see in the network below. That's why networks like this are also referred to as **densely connected neural networks**. 
 
-<img src="./images/new_first_network.png" width=600>
+<img src="./images/new_first_network.png" width=600> 
+
+
 
 When we generalize this, a neural network looks like the configuration below. 
 
-As you can see, to implement a neural network, we need to feed it the inputs $x_i$ (location, pricing, and variety in this example) and the outcome $y$ (pricing in this example), and all the features in the middle will be figured out automatically in the network. That's why this layer is called the **hidden layer**, with the nodes representing **hidden units**. 
+As you can see, to implement a neural network, we need to feed it the inputs $x_i$ (location, pricing, and variety in this example) and the outcome $y$ (pricing in this example), and all the features in the middle will be figured out automatically in the network. That's why this layer is called the **hidden layer**, with the nodes representing **hidden units**.  
 
-<img src="./images/new_first_network_num.png" width=600>
+<img src="./images/new_first_network_num.png" width=600> 
 
-## The power of deep learning
+## The power of deep learning 
 
 In our previous example, we have three input units, hidden layer with 4 units and 1 output unit. Notice that networks come in all shapes and sizes. This is only one example of what deep learning is capable of! The network described above can be extended almost endlessly:
 
 - We can add more features (nodes) in the input layer 
 - We can add more nodes in the hidden layer. Also, we can simply add more hidden layers. This is what turns a neural network in a "deep" neural network (hence, deep learning)
-- We can also have several nodes in the output layer 
+- We can also have several nodes in the output layer  
 
-<img src="./images/new_deeper_network.png" width=800>
+<img src="./images/new_deeper_network.png" width=800> 
 
 And there is one more thing that makes deep learning extremely powerful: unlike many other statistical and machine learning techniques, deep learning can deal extremely well with **unstructured data**.
 
 
 In the ice cream vendor example, the input features can be seen as **structured data**. The input features very much take a form of a "classical" dataset: observations are rows, features are columns. Examples or **unstructured data**, however, are: images, audio files, text data, etc. Historically, and unlike humans, machines had a very hard time interpreting unstructured data. Deep learning was really able to drastically improve machine performance when using unstructured data!
 
-To illustrate the power of deep learning, we describe some applications of deep learning below:
+To illustrate the power of deep learning, we describe some applications of deep learning below: 
 
 | x | y |
 |---|---|
@@ -59,8 +61,8 @@ To illustrate the power of deep learning, we describe some applications of deep 
 | audio files | text |
 |  ... | ... |         
 
-
-
+ 
+ 
 Types or neural networks: 
 
 - Standard neural networks
@@ -77,7 +79,7 @@ Types or neural networks:
 You'll see that there is quite a bit of theory and mathematical notation needed when using neural networks. We'll introduce all this for the first time by using an example.
 Imagine we have a dataset with images. Some of them have Santa in it, others don't. We'll use a neural network to train the model so it can detect whether Santa is in a picture or not.
 
-As mentioned before, this is a kind of problem where the input data is composed of images. Now how does Python read images? To store an image, your computes stores three matrices which correspond with three color channels: red, green and blue (also referred to as RGB). The numbers in each of the three matrices correspond with the pixel intensity values in each of the three colors. The picture below denotes a hypothetical representation of a 4 x 4 pixel image (note that 4 x 4 is tiny, generally you'll have much bigger dimensions). Pixel intensity values are on the scale [0, 255].
+As mentioned before, this is a kind of problem where the input data is composed of images. Now how does Python read images? To store an image, your computer stores three matrices which correspond with three color channels: red, green and blue (also referred to as RGB). The numbers in each of the three matrices correspond with the pixel intensity values in each of the three colors. The picture below denotes a hypothetical representation of a 4 x 4 pixel image (note that 4 x 4 is tiny, generally you'll have much bigger dimensions). Pixel intensity values are on the scale [0, 255].
 
 <img src="./images/new_rgb.png" width=300>
 
@@ -108,7 +110,7 @@ where 1 means that the image contains a Santa, 0 means there is no Santa in the 
 
 ### Logistic regression as a neural network
 
-So how will we be able to predict weather `y` is 0 or 1 for a certain image? You might remember from logistic regression models that the eventual predictor, $\hat y$, is generally never exactly 0 or 1, but some value in between. 
+So how will we be able to predict whether `y` is 0 or 1 for a certain image? You might remember from logistic regression models that the eventual predictor, $\hat y$, is generally never exactly 0 or 1, but some value in between. 
 
 Formally, you'll denote that as $ \hat y = P(y=1 \mid x) $. 
 
@@ -173,7 +175,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_32_0.png)
+![png](index_files/index_24_0.png)
 
 
 Congratulations! You have gotten to the point where you have the expression for the cost function and the loss function. The step we have just taken is called **forward propagation**.
