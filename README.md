@@ -147,7 +147,7 @@ import numpy as np
 
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
-ax = fig.add_subplot()
+ax = fig.gca()
 
 # Generate data
 X = np.arange(-5, 5, 0.1)
