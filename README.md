@@ -147,6 +147,7 @@ import numpy as np
 
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
+ax = fig.add_subplot()
 
 # Generate data
 X = np.arange(-5, 5, 0.1)
@@ -173,12 +174,6 @@ ax.set_zticklabels([])
 
 plt.show()
 ```
-
-
-    
-![png](index_files/index_24_0.png)
-    
-
 
 Congratulations! You have gotten to the point where you have the expression for the cost function and the loss function. The step we have just taken is called **forward propagation**.
 
