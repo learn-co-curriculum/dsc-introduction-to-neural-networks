@@ -25,7 +25,7 @@ Last, let's look at the *variety in offering*. When an ice cream shop offers a l
 
 In reality, all features will be connected with all nodes in the hidden layer, and weights will be assigned to the edges (more about this later), as you can see in the network below. That's why networks like this are also referred to as **densely connected neural networks**. 
 
-<img src="./images/new_first_network.png" width=600> 
+<img src="https://curriculum-content.s3.amazonaws.com/data-science/images/new_first_network.png" width=600> 
 
 
 
@@ -33,7 +33,7 @@ When we generalize this, a neural network looks like the configuration below.
 
 As you can see, to implement a neural network, we need to feed it the inputs $x_i$ (location, pricing, and variety in this example) and the outcome $y$ (sales in this example), and all the features in the middle will be figured out automatically in the network. That's why this layer is called the **hidden layer**, with the nodes representing **hidden units**.  
 
-<img src="./images/new_first_network_num.png" width=600> 
+<img src="https://curriculum-content.s3.amazonaws.com/data-science/images/new_first_network_num.png" width=600> 
 
 ## The power of deep learning 
 
@@ -43,7 +43,7 @@ In our previous example, we have three input units, a hidden layer with 4 units,
 - We can add more nodes in the hidden layer. Also, we can simply add more hidden layers. This is what turns a neural network into a "deep" neural network (hence, deep learning)
 - We can also have several nodes in the output layer  
 
-<img src="./images/new_deeper_network.png" width=800> 
+<img src="https://curriculum-content.s3.amazonaws.com/data-science/images/new_deeper_network.png" width=800> 
 
 And there is one more thing that makes deep learning extremely powerful: unlike many other statistical and machine learning techniques, deep learning can deal extremely well with **unstructured data**.
 
@@ -74,14 +74,14 @@ Types of neural networks:
 
 ### Problem statement and matrix representation
 
-![title](images/santa.jpg)
+![title](https://curriculum-content.s3.amazonaws.com/data-science/images/santa.jpg)
 
 You'll see that there is quite a bit of theory and mathematical notation needed when using neural networks. We'll introduce all this for the first time by using an example.
 Imagine we have a dataset with images. Some of them have Santa in it, others don't. We'll use a neural network to train the model so it can detect whether Santa is in a picture or not.
 
 As mentioned before, this is a kind of problem where the input data is composed of images. Now how does Python read images? To store an image, your computer stores three matrices which correspond with three color channels: red, green, and blue (also referred to as RGB). The numbers in each of the three matrices correspond with the pixel intensity values in each of the three colors. The picture below denotes a hypothetical representation of a 4 x 4 pixel image (note that 4 x 4 is tiny, generally you'll have much bigger dimensions). Pixel intensity values are on the scale [0, 255].
 
-<img src="./images/new_rgb.png" width=300>
+<img src="https://curriculum-content.s3.amazonaws.com/data-science/images/new_rgb.png" width=300>
 
 Having three matrices associated with one image, we'll need to modify this shape to get to one input feature vector. You'll want to "unrow" your input feature values into one so-called "feature vector". You should start with unrowing the red pixel matrix, then the green one, then the blue one. Unrowing the RGB matrices in the image above would result in:
 
@@ -120,11 +120,11 @@ We'll need some expression here in order to make a prediction. The parameters he
 
 This is why a transformation of $w^T x + b$ is needed. For this particular example, we denote $\hat y = \sigma(w^T x + b)$, where $z = w^T x + b$, then $ \hat y = \sigma(z)$. This so-called *sigmoid function* is a popular *activation function* (more about activation functions later) in neural networks. With the expression for a sigmoid given by $\sigma(z) = \displaystyle\frac{1}{1 + \exp(-z)}$, it is clear that $\sigma(z)$ will always be somewhere between 0 and 1, as you can see in the plot below.
 
-<img src="./images/new_sigmoid_smaller.png" width=550>
+<img src="https://curriculum-content.s3.amazonaws.com/data-science/images/new_sigmoid_smaller.png" width=550>
 
 Bringing all this together, the neural network can be represented as follows:
 
-<img src="./images/new_slogref.png" width=600>
+<img src="https://curriculum-content.s3.amazonaws.com/data-science/images/new_slogref.png" width=600>
 
 ### Define the loss and cost function
 
@@ -194,7 +194,7 @@ What we have just explained here is called **backpropagation**. You need to take
 
 When using the chain rule, computation graphs are popular. Imagine there are just two features $x_1$ and $x_2$. The graph going from our input variables to our loss function is given below: 
 
-<img src="./images/new_logreg.png" width=600>
+<img src="https://curriculum-content.s3.amazonaws.com/data-science/images/new_logreg.png" width=600>
 
 You'll first want to compute the derivative to the loss with respect to $\hat y$.
 
